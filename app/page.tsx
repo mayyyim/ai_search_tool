@@ -117,20 +117,23 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-4">
-          <div className="flex-shrink-0">
-            <h1 className="text-xl font-bold text-gray-900">
-              <span className="text-blue-600">AI</span>{" "}
-              {t("app.title").replace(/^AI\s*/, "")}
-            </h1>
-            <p className="text-xs text-gray-400">
-              {t("header.lastUpdated", {
-                date: toolsData.lastUpdated,
-                time: lastUpdatedAtText ? ` (${lastUpdatedAtText})` : "",
-              })}
-            </p>
+        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <div className="flex flex-col items-center text-center gap-1 sm:items-start sm:text-left sm:block sm:flex-shrink-0">
+            <div className="flex flex-col items-center sm:items-start">
+              <h1 className="text-xl font-bold text-gray-900">
+                <span className="text-blue-600">AI</span>{" "}
+                {t("app.title").replace(/^AI\s*/, "")}
+              </h1>
+              <p className="text-xs text-gray-400">
+                {t("header.lastUpdated", {
+                  date: toolsData.lastUpdated,
+                  time: lastUpdatedAtText ? ` (${lastUpdatedAtText})` : "",
+                })}
+              </p>
+            </div>
           </div>
-          <div className="flex-1 max-w-xl">
+
+          <div className="w-full sm:flex-1 sm:max-w-xl">
             <input
               type="text"
               placeholder={t("header.searchPlaceholder")}
@@ -139,16 +142,21 @@ export default function Home() {
               className="w-full px-4 py-2 rounded-full border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
-          <LanguageToggle />
-          <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer flex-shrink-0">
-            <input
-              type="checkbox"
-              checked={freeOnly}
-              onChange={(e) => setFreeOnly(e.target.checked)}
-              className="rounded text-blue-600"
-            />
-            {t("header.freeOnly")}
-          </label>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:flex-nowrap sm:justify-end sm:gap-4">
+            <div>
+              <LanguageToggle />
+            </div>
+            <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer whitespace-nowrap">
+              <input
+                type="checkbox"
+                checked={freeOnly}
+                onChange={(e) => setFreeOnly(e.target.checked)}
+                className="rounded text-blue-600"
+              />
+              {t("header.freeOnly")}
+            </label>
+          </div>
         </div>
       </header>
 
