@@ -113,7 +113,9 @@ async function main() {
   }
 
   data.tools.push(...newTools);
-  data.lastUpdated = new Date().toISOString().split("T")[0];
+  const nowIso = new Date().toISOString();
+  data.lastUpdated = nowIso.split("T")[0];
+  data.lastUpdatedAt = nowIso;
 
   writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), "utf-8");
 
