@@ -30,6 +30,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [freeOnly, setFreeOnly] = useState(false);
   const [usage, setUsage] = useState<Record<string, number>>({});
+  const sponsorUrl = "https://patreon.com/meijiiing";
 
   const tools = toolsData.tools;
 
@@ -200,7 +201,20 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-gray-200 mt-12 py-6 text-center text-sm text-gray-400">
-        {t("app.footer")}
+        <div className="flex flex-col items-center justify-center gap-2">
+          <div>{t("app.footer")}</div>
+          <a
+            href={sponsorUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+            aria-label={t("footer.sponsorHint")}
+            title={t("footer.sponsorHint")}
+          >
+            <span className="text-pink-600">♥</span>
+            <span>{t("footer.sponsor")}</span>
+          </a>
+        </div>
       </footer>
     </div>
   );

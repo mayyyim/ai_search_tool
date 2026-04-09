@@ -11,6 +11,8 @@ const MESSAGES: Record<Locale, Messages> = {
     "app.title": "AI 狗腿子库",
     "app.subtitle": "瞎用吧",
     "app.footer": "AI狗腿子库 · 每日自动更新 · 数据由 AI 整理",
+    "footer.sponsor": "赞助",
+    "footer.sponsorHint": "支持作者继续更新",
 
     "header.lastUpdated": "最后更新：{date}{time}",
     "header.searchPlaceholder": "搜搜狗腿子名字、技能...",
@@ -28,6 +30,8 @@ const MESSAGES: Record<Locale, Messages> = {
     "app.title": "AI Sidekicks",
     "app.subtitle": "Use it or lose it — your AI minions await",
     "app.footer": "AI Sidekicks · Auto-updated daily · Curated by AI",
+    "footer.sponsor": "Support",
+    "footer.sponsorHint": "Help keep it updated",
 
     "header.lastUpdated": "Last updated: {date}{time}",
     "header.searchPlaceholder": "Search your sidekicks by name, skills...",
