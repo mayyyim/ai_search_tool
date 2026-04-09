@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import toolsData from "@/data/tools.json";
 import ToolCard from "@/components/ToolCard";
 import CategoryFilter from "@/components/CategoryFilter";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useI18n } from "@/lib/i18n";
 
 const CATEGORY_ORDER = [
   "全部",
@@ -21,12 +23,21 @@ const CATEGORY_ORDER = [
 ];
 
 export default function Home() {
+  const { locale, t } = useI18n();
   const [selectedCategory, setSelectedCategory] = useState("全部");
   const [searchQuery, setSearchQuery] = useState("");
   const [freeOnly, setFreeOnly] = useState(false);
   const [usage, setUsage] = useState<Record<string, number>>({});
 
   const tools = toolsData.tools;
+
+  const lastUpdatedAt = (toolsData as any).lastUpdatedAt as string | undefined;
+  const lastUpdatedAtText = useMemo(() => {
+    if (!lastUpdatedAt) return null;
+    const d = new Date(lastUpdatedAt);
+    if (Number.isNaN(d.getTime())) return null;
+    return d.toLocaleString(locale === "zh" ? "zh-CN" : "en", { hour12: false });
+  }, [lastUpdatedAt, locale]);
 
   useEffect(() => {
     let cancelled = false;
@@ -67,9 +78,9 @@ export default function Home() {
       const ua = usage[a.id] ?? 0;
       const ub = usage[b.id] ?? 0;
       if (ua !== ub) return ub - ua;
-      return a.name.localeCompare(b.name, "zh-Hans-CN");
+      return a.name.localeCompare(b.name, locale === "zh" ? "zh-Hans-CN" : "en");
     });
-  }, [tools, selectedCategory, freeOnly, searchQuery, usage]);
+  }, [tools, selectedCategory, freeOnly, searchQuery, usage, locale]);
 
   return (
     <div className="min-h-screen">
@@ -78,19 +89,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-4">
           <div className="flex-shrink-0">
             <h1 className="text-xl font-bold text-gray-900">
-              <span className="text-blue-600">AI</span> 工具库
+              <span className="text-blue-600">AI</span>{" "}
+              {t("app.title").replace(/^AI\s*/, "")}
             </h1>
-            <p className="text-xs text-gray-400">最后更新：{toolsData.lastUpdated}</p>
+            <p className="text-xs text-gray-400">
+              {t("header.lastUpdated", {
+                date: toolsData.lastUpdated,
+                time: lastUpdatedAtText ? ` (${lastUpdatedAtText})` : "",
+              })}
+            </p>
           </div>
           <div className="flex-1 max-w-xl">
             <input
               type="text"
-              placeholder="搜索工具名称、功能..."
+              placeholder={t("header.searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-4 py-2 rounded-full border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
+          <LanguageToggle />
           <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer flex-shrink-0">
             <input
               type="checkbox"
@@ -98,7 +116,7 @@ export default function Home() {
               onChange={(e) => setFreeOnly(e.target.checked)}
               className="rounded text-blue-600"
             />
-            只看免费
+            {t("header.freeOnly")}
           </label>
         </div>
       </header>
@@ -107,10 +125,10 @@ export default function Home() {
         {/* Hero */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
-            发现最好的 AI 工具
+            {t("app.subtitle")}
           </h2>
           <p className="text-gray-500 text-sm">
-            共收录 <span className="font-semibold text-blue-600">{tools.length}</span> 个工具，持续更新中
+            {t("hero.totalTools", { count: tools.length })}
           </p>
         </div>
 
@@ -123,14 +141,14 @@ export default function Home() {
 
         {/* Results count */}
         <div className="text-sm text-gray-400 mb-4">
-          找到 <span className="font-medium text-gray-700">{filtered.length}</span> 个工具
+          {t("results.count", { count: filtered.length })}
         </div>
 
         {/* Grid */}
         {filtered.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
             <div className="text-4xl mb-3">🔍</div>
-            <p>没有找到匹配的工具</p>
+            <p>{t("results.empty")}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -143,7 +161,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-gray-200 mt-12 py-6 text-center text-sm text-gray-400">
-        AI工具库 · 每周自动更新 · 数据由 AI 整理
+        {t("app.footer")}
       </footer>
     </div>
   );

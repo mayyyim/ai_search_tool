@@ -1,3 +1,5 @@
+import { getCategoryLabel, useI18n } from "@/lib/i18n";
+
 const CATEGORY_ICONS: Record<string, string> = {
   "全部": "✦",
   "对话AI": "💬",
@@ -20,6 +22,8 @@ interface Props {
 }
 
 export default function CategoryFilter({ categories, selected, onSelect }: Props) {
+  const { locale } = useI18n();
+
   return (
     <div className="flex flex-wrap gap-2 mb-6">
       {categories.map((cat) => (
@@ -33,7 +37,7 @@ export default function CategoryFilter({ categories, selected, onSelect }: Props
           }`}
         >
           <span>{CATEGORY_ICONS[cat] || "•"}</span>
-          {cat}
+          {getCategoryLabel(locale, cat)}
         </button>
       ))}
     </div>

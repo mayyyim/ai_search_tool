@@ -1,3 +1,5 @@
+import { getCategoryLabel, useI18n } from "@/lib/i18n";
+
 interface Tool {
   id: string;
   name: string;
@@ -10,6 +12,8 @@ interface Tool {
 }
 
 export default function ToolCard({ tool }: { tool: Tool }) {
+  const { locale, t } = useI18n();
+
   return (
     <a
       href={tool.url}
@@ -34,7 +38,9 @@ export default function ToolCard({ tool }: { tool: Tool }) {
           <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
             {tool.name}
           </h3>
-          <span className="text-xs text-gray-400">{tool.category}</span>
+          <span className="text-xs text-gray-400">
+            {getCategoryLabel(locale, tool.category)}
+          </span>
         </div>
         <span
           className={`flex-shrink-0 text-xs font-medium px-2 py-0.5 rounded-full ${
@@ -43,7 +49,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
               : "bg-orange-50 text-orange-700 border border-orange-200"
           }`}
         >
-          {tool.free ? "免费" : "付费"}
+          {tool.free ? t("tool.free") : t("tool.paid")}
         </span>
       </div>
 
