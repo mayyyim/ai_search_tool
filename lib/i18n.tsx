@@ -9,7 +9,7 @@ type Messages = Record<string, string>;
 const MESSAGES: Record<Locale, Messages> = {
   zh: {
     "app.title": "AI 狗腿子库",
-    "app.subtitle": "瞎乎用吧，ai狗腿子们",
+    "app.subtitle": "瞎用吧",
     "app.footer": "AI狗腿子库 · 每日自动更新 · 数据由 AI 整理",
 
     "header.lastUpdated": "最后更新：{date}{time}",
@@ -22,7 +22,7 @@ const MESSAGES: Record<Locale, Messages> = {
     "results.empty": "没找到匹配的狗腿子",
 
     "tool.free": "可白嫖",
-    "tool.paid": "付费",
+    "tool.paid": "氪金",
   },
   en: {
     "app.title": "AI Sidekicks",

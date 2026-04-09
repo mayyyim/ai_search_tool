@@ -84,11 +84,22 @@ export default function Home() {
         locale === "en"
           ? (((toolsEn as any).descriptions?.[tool.id] as string | undefined) ?? "").toLowerCase()
           : "";
+      const enTags =
+        locale === "en"
+          ? (tool.tags || [])
+              .map(
+                (tag) =>
+                  ((toolsEn as any).tagTranslations?.[tag] as string | undefined) ?? tag
+              )
+              .join(" ")
+              .toLowerCase()
+          : "";
       const matchSearch =
         !q ||
         tool.name.toLowerCase().includes(q) ||
         tool.description.toLowerCase().includes(q) ||
         enDesc.includes(q) ||
+        enTags.includes(q) ||
         tool.tags.some((t) => t.toLowerCase().includes(q));
       return matchCategory && matchFree && matchSearch;
     });

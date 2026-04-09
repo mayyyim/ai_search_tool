@@ -19,6 +19,12 @@ export default function ToolCard({ tool }: { tool: Tool }) {
     locale === "en"
       ? ((toolsEn as any).descriptions?.[tool.id] as string | undefined) ?? tool.description
       : tool.description;
+  const displayTags =
+    locale === "en"
+      ? tool.tags.map(
+          (tag) => ((toolsEn as any).tagTranslations?.[tag] as string | undefined) ?? tag
+        )
+      : tool.tags;
 
   return (
     <a
@@ -72,9 +78,9 @@ export default function ToolCard({ tool }: { tool: Tool }) {
 
       {/* Tags */}
       <div className="flex flex-wrap gap-1">
-        {tool.tags.slice(0, 3).map((tag) => (
+        {displayTags.slice(0, 3).map((tag, idx) => (
           <span
-            key={tag}
+            key={`${tool.id}:${idx}:${tag}`}
             className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full"
           >
             {tag}
