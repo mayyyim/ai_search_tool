@@ -500,6 +500,166 @@
       "description": "字节跳动推出的AI应用开发平台，无需编程即可构建AI机器人",
       "tags": ["无代码", "机器人", "开发者"],
       "addedAt": "2026-04-09"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "category": "对话AI",
+      "url": "https://chat.deepseek.com",
+      "free": true,
+      "description": "DeepSeek 推出的对话AI，擅长推理与代码相关任务，中文体验好",
+      "tags": ["对话", "推理", "编程"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "mistral-le-chat",
+      "name": "Le Chat（Mistral）",
+      "category": "对话AI",
+      "url": "https://chat.mistral.ai",
+      "free": true,
+      "description": "Mistral 的对话助手 Le Chat，提供多模型对话与文档/代码辅助能力",
+      "tags": ["对话", "写作", "编程"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "category": "开发者工具",
+      "url": "https://groq.com",
+      "free": true,
+      "description": "高性能推理平台，提供超低延迟的LLM推理与开发者API，适合实时应用",
+      "tags": ["API", "低延迟", "开发者"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "category": "开发者工具",
+      "url": "https://openrouter.ai",
+      "free": true,
+      "description": "聚合多家模型的统一API网关，一套接口接入多模型并可灵活路由与计费",
+      "tags": ["API", "模型聚合", "开发者"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "category": "开发者工具",
+      "url": "https://www.langchain.com",
+      "free": true,
+      "description": "用于构建LLM应用的开发框架，支持Agent、RAG、工具调用与多种集成",
+      "tags": ["开发框架", "Agent", "RAG"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "llamaindex",
+      "name": "LlamaIndex",
+      "category": "开发者工具",
+      "url": "https://www.llamaindex.ai",
+      "free": true,
+      "description": "面向数据与RAG的LLM应用框架，连接你的文档/数据库并构建可检索的AI助手",
+      "tags": ["RAG", "数据连接", "开发者"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "dify",
+      "name": "Dify",
+      "category": "开发者工具",
+      "url": "https://dify.ai",
+      "free": true,
+      "description": "开源的AI应用与工作流平台，可视化搭建Agent与RAG流程并支持自托管部署",
+      "tags": ["工作流", "Agent", "开源"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "flowise",
+      "name": "Flowise",
+      "category": "开发者工具",
+      "url": "https://flowiseai.com",
+      "free": true,
+      "description": "开源可视化搭建LLM应用与Agent的工具，拖拽式编排流程并提供API/嵌入组件",
+      "tags": ["可视化", "Agent", "开源"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "codeium",
+      "name": "Codeium",
+      "category": "编程辅助",
+      "url": "https://codeium.com",
+      "free": true,
+      "description": "AI编程助手，提供代码补全、聊天与多IDE集成，个人免费功能覆盖面广",
+      "tags": ["编程", "代码补全", "IDE"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "tabnine",
+      "name": "Tabnine",
+      "category": "编程辅助",
+      "url": "https://www.tabnine.com",
+      "free": true,
+      "description": "面向团队与企业的AI代码助手，强调隐私与可控性，支持多IDE与私有化部署",
+      "tags": ["编程", "企业", "隐私"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "category": "编程辅助",
+      "url": "https://continue.dev",
+      "free": true,
+      "description": "开源AI编码助手（VS Code/JetBrains），支持对话、编辑与多模型/本地模型接入",
+      "tags": ["编程", "开源", "IDE"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "category": "编程辅助",
+      "url": "https://aider.chat",
+      "free": true,
+      "description": "终端里的AI结对编程工具，擅长在现有代码库里改功能、写测试并支持git工作流",
+      "tags": ["编程", "终端", "git"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "krea",
+      "name": "Krea",
+      "category": "图像生成",
+      "url": "https://www.krea.ai",
+      "free": true,
+      "description": "面向创意生产的AI套件，支持实时生图、增强与编辑，适合设计与内容创作",
+      "tags": ["图像生成", "图像编辑", "创意"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "clipdrop",
+      "name": "Clipdrop",
+      "category": "设计工具",
+      "url": "https://clipdrop.co",
+      "free": true,
+      "description": "一站式AI图像处理工具集，包含抠图、清理、补全、放大、重光等常用功能",
+      "tags": ["抠图", "图像编辑", "效率"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "recraft",
+      "name": "Recraft",
+      "category": "设计工具",
+      "url": "https://www.recraft.ai",
+      "free": true,
+      "description": "偏设计生产的AI生成平台，支持高质量图像与矢量资产生成，适合品牌与电商素材",
+      "tags": ["设计", "矢量", "图像生成"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "photoroom",
+      "name": "Photoroom",
+      "category": "设计工具",
+      "url": "https://www.photoroom.com",
+      "free": true,
+      "description": "面向电商与产品图的AI修图工具，支持一键背景、商品场景生成和批量处理",
+      "tags": ["电商", "修图", "批量处理"],
+      "addedAt": "2026-04-09"
     }
   ]
 }
