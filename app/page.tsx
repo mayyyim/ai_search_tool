@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import toolsData from "@/data/tools.json";
 import ToolCard from "@/components/ToolCard";
 import CategoryFilter from "@/components/CategoryFilter";
@@ -24,8 +24,25 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("全部");
   const [searchQuery, setSearchQuery] = useState("");
   const [freeOnly, setFreeOnly] = useState(false);
+  const [usage, setUsage] = useState<Record<string, number>>({});
 
   const tools = toolsData.tools;
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/usage")
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        if (data && typeof data === "object" && data.usage && typeof data.usage === "object") {
+          setUsage(data.usage);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const categories = useMemo(() => {
     const cats = new Set(tools.map((t) => t.category));
@@ -33,7 +50,7 @@ export default function Home() {
   }, [tools]);
 
   const filtered = useMemo(() => {
-    return tools.filter((tool) => {
+    const list = tools.filter((tool) => {
       const matchCategory = selectedCategory === "全部" || tool.category === selectedCategory;
       const matchFree = !freeOnly || tool.free;
       const q = searchQuery.toLowerCase();
@@ -44,7 +61,15 @@ export default function Home() {
         tool.tags.some((t) => t.toLowerCase().includes(q));
       return matchCategory && matchFree && matchSearch;
     });
-  }, [tools, selectedCategory, freeOnly, searchQuery]);
+
+    // Sort by usage desc (clicks), then by name for stability.
+    return list.sort((a, b) => {
+      const ua = usage[a.id] ?? 0;
+      const ub = usage[b.id] ?? 0;
+      if (ua !== ub) return ub - ua;
+      return a.name.localeCompare(b.name, "zh-Hans-CN");
+    });
+  }, [tools, selectedCategory, freeOnly, searchQuery, usage]);
 
   return (
     <div className="min-h-screen">

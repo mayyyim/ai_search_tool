@@ -15,6 +15,17 @@ export default function ToolCard({ tool }: { tool: Tool }) {
       href={tool.url}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        try {
+          // best-effort; do not block navigation
+          fetch("/api/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: tool.id }),
+            keepalive: true,
+          }).catch(() => {});
+        } catch {}
+      }}
       className="group bg-white rounded-xl border border-gray-200 p-4 hover:border-blue-400 hover:shadow-md transition-all duration-200 flex flex-col gap-3"
     >
       {/* Top row */}
