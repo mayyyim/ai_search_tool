@@ -21,7 +21,7 @@ const MESSAGES: Record<Locale, Messages> = {
     "results.count": "找到 {count} 个狗腿子",
     "results.empty": "没找到匹配的狗腿子",
 
-    "tool.free": "免费",
+    "tool.free": "可白嫖",
     "tool.paid": "付费",
   },
   en: {
@@ -54,6 +54,7 @@ const CATEGORY_LABELS: Record<Locale, Record<string, string>> = {
     "视频生成": "视频生成",
     "编程辅助": "编程辅助",
     "写作辅助": "写作辅助",
+    "演示文稿": "演示文稿",
     "效率工具": "效率工具",
     "设计工具": "设计工具",
     "音频与语音": "音频与语音",
@@ -68,6 +69,7 @@ const CATEGORY_LABELS: Record<Locale, Record<string, string>> = {
     "视频生成": "Video Generation",
     "编程辅助": "Coding",
     "写作辅助": "Writing",
+    "演示文稿": "Presentations",
     "效率工具": "Productivity",
     "设计工具": "Design",
     "音频与语音": "Audio & Speech",

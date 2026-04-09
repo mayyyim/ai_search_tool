@@ -255,7 +255,7 @@
     {
       "id": "gamma",
       "name": "Gamma",
-      "category": "效率工具",
+      "category": "演示文稿",
       "url": "https://gamma.app",
       "free": true,
       "description": "AI驱动的演示文稿生成工具，一键生成精美PPT",
@@ -265,11 +265,91 @@
     {
       "id": "beautiful-ai",
       "name": "Beautiful.ai",
-      "category": "效率工具",
+      "category": "演示文稿",
       "url": "https://www.beautiful.ai",
       "free": false,
       "description": "AI辅助的演示文稿制作工具，自动美化布局",
       "tags": ["PPT", "演示", "设计"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "tome",
+      "name": "Tome",
+      "category": "演示文稿",
+      "url": "https://tome.app",
+      "free": true,
+      "description": "AI演示文稿生成工具，支持从提示词快速生成结构与内容并可导出分享",
+      "tags": ["PPT", "演示", "生成"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "pitch",
+      "name": "Pitch",
+      "category": "演示文稿",
+      "url": "https://pitch.com",
+      "free": true,
+      "description": "团队协作演示工具，提供模板与内容组件，适合做路演、汇报与提案",
+      "tags": ["PPT", "协作", "模板"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "decktopus",
+      "name": "Decktopus",
+      "category": "演示文稿",
+      "url": "https://www.decktopus.com",
+      "free": true,
+      "description": "AI辅助做PPT的平台，自动生成大纲与页面内容，并提供演示所需素材建议",
+      "tags": ["PPT", "大纲", "生成"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "slidesai",
+      "name": "SlidesAI.io",
+      "category": "演示文稿",
+      "url": "https://www.slidesai.io",
+      "free": true,
+      "description": "把文本快速转换为演示文稿的AI工具，适合把文章/笔记变成可汇报的PPT",
+      "tags": ["PPT", "文本转PPT", "效率"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "plus-ai",
+      "name": "Plus AI",
+      "category": "演示文稿",
+      "url": "https://www.plusdocs.com",
+      "free": false,
+      "description": "面向 Google Slides/PowerPoint 的AI写稿与生成工具，支持从提示词/文档生成演示",
+      "tags": ["PPT", "Google Slides", "PowerPoint"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "prezi",
+      "name": "Prezi",
+      "category": "演示文稿",
+      "url": "https://prezi.com",
+      "free": true,
+      "description": "以缩放画布为特色的演示平台，适合做故事化展示与动态讲解，也支持在线协作",
+      "tags": ["演示", "动态", "协作"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "slidebean",
+      "name": "Slidebean",
+      "category": "演示文稿",
+      "url": "https://slidebean.com",
+      "free": false,
+      "description": "面向创业路演的演示设计平台，强调内容结构与自动排版，适合做Pitch Deck",
+      "tags": ["路演", "Pitch Deck", "设计"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "presentations-ai",
+      "name": "Presentations.ai",
+      "category": "演示文稿",
+      "url": "https://www.presentations.ai",
+      "free": true,
+      "description": "AI生成演示文稿平台，支持从提示词生成页面结构、文案与视觉风格并快速编辑",
+      "tags": ["PPT", "生成", "模板"],
       "addedAt": "2026-04-09"
     },
     {

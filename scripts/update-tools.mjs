@@ -13,8 +13,73 @@ const DATA_PATH = join(__dirname, "../data/tools.json");
 
 const CATEGORIES = [
   "对话AI", "AI搜索", "图像生成", "视频生成", "编程辅助",
-  "写作辅助", "效率工具", "设计工具", "音频与语音", "翻译工具", "开发者工具"
+  "写作辅助", "演示文稿", "效率工具", "设计工具", "音频与语音", "翻译工具", "开发者工具"
 ];
+
+function normalizeName(name) {
+  return String(name ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function normalizeId(id) {
+  return String(id ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
+function normalizeUrl(raw) {
+  try {
+    const u = new URL(String(raw ?? "").trim());
+    // Normalize: drop hash, drop trailing slash, lower-case host, strip common tracking params.
+    u.hash = "";
+    u.hostname = u.hostname.toLowerCase();
+    const params = u.searchParams;
+    [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
+      "ref",
+      "ref_src",
+      "source",
+    ].forEach((k) => params.delete(k));
+    u.search = params.toString() ? `?${params.toString()}` : "";
+    u.pathname = u.pathname.replace(/\/+$/, "");
+    return u.toString();
+  } catch {
+    return null;
+  }
+}
+
+function isAllowedCategory(category) {
+  return CATEGORIES.includes(category);
+}
+
+function normalizeCategories(tool) {
+  const raw = Array.isArray(tool?.categories)
+    ? tool.categories
+    : tool?.category
+      ? [tool.category]
+      : [];
+
+  const cats = raw
+    .map((c) => String(c ?? "").trim())
+    .filter(Boolean);
+
+  // De-dupe & keep order
+  const out = [];
+  const seen = new Set();
+  for (const c of cats) {
+    if (seen.has(c)) continue;
+    seen.add(c);
+    out.push(c);
+  }
+  return out;
+}
 
 async function callClaude(prompt) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
@@ -79,8 +144,14 @@ async function main() {
 
   console.log("读取现有工具库...");
   const data = JSON.parse(readFileSync(DATA_PATH, "utf-8"));
-  const existingIds = new Set(data.tools.map((t) => t.id));
+  const existingIds = new Set(data.tools.map((t) => normalizeId(t.id)));
   const existingNames = data.tools.map((t) => t.name);
+  const existingNameKeys = new Set(data.tools.map((t) => normalizeName(t.name)));
+  const existingUrlKeys = new Set(
+    data.tools
+      .map((t) => normalizeUrl(t.url))
+      .filter(Boolean)
+  );
 
   console.log(`当前工具数量：${data.tools.length}`);
   console.log("正在让 Claude 发现新工具...");
@@ -89,18 +160,51 @@ async function main() {
   try {
     const candidates = await discoverNewTools(existingIds, existingNames);
 
+    const seenCandidateIds = new Set();
+    const seenCandidateNames = new Set();
+    const seenCandidateUrls = new Set();
+
     for (const tool of candidates) {
-      if (!existingIds.has(tool.id) && tool.id && tool.name && tool.url && tool.category) {
-        // 确保 id 唯一
-        let finalId = tool.id;
-        let suffix = 1;
-        while (existingIds.has(finalId)) {
-          finalId = `${tool.id}-${suffix++}`;
-        }
-        tool.id = finalId;
-        newTools.push(tool);
-        existingIds.add(finalId);
+      const id = normalizeId(tool?.id);
+      const nameKey = normalizeName(tool?.name);
+      const urlKey = normalizeUrl(tool?.url);
+      const categories = normalizeCategories(tool);
+
+      if (!id || !tool?.name || !tool?.url || categories.length === 0) continue;
+      if (!categories.every((c) => isAllowedCategory(c))) continue;
+      if (!urlKey) continue;
+
+      // Deduplicate against existing dataset
+      if (existingIds.has(id)) continue;
+      if (existingNameKeys.has(nameKey)) continue;
+      if (existingUrlKeys.has(urlKey)) continue;
+
+      // Deduplicate within this candidate batch
+      if (seenCandidateIds.has(id)) continue;
+      if (seenCandidateNames.has(nameKey)) continue;
+      if (seenCandidateUrls.has(urlKey)) continue;
+
+      // Ensure ID is globally unique (suffix if needed)
+      let finalId = id;
+      let suffix = 1;
+      while (existingIds.has(finalId) || seenCandidateIds.has(finalId)) {
+        finalId = `${id}-${suffix++}`;
       }
+
+      newTools.push({
+        ...tool,
+        id: finalId,
+        url: urlKey,
+        categories,
+        category: categories[0],
+      });
+
+      existingIds.add(finalId);
+      existingNameKeys.add(nameKey);
+      existingUrlKeys.add(urlKey);
+      seenCandidateIds.add(finalId);
+      seenCandidateNames.add(nameKey);
+      seenCandidateUrls.add(urlKey);
     }
   } catch (err) {
     console.error("发现新工具时出错：", err.message);

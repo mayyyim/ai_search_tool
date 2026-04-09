@@ -6,6 +6,7 @@ import ToolCard from "@/components/ToolCard";
 import CategoryFilter from "@/components/CategoryFilter";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useI18n } from "@/lib/i18n";
+import toolsEn from "@/data/tools.en.json";
 
 const CATEGORY_ORDER = [
   "全部",
@@ -15,6 +16,7 @@ const CATEGORY_ORDER = [
   "视频生成",
   "编程辅助",
   "写作辅助",
+  "演示文稿",
   "效率工具",
   "设计工具",
   "音频与语音",
@@ -56,19 +58,37 @@ export default function Home() {
   }, []);
 
   const categories = useMemo(() => {
-    const cats = new Set(tools.map((t) => t.category));
+    const cats = new Set<string>();
+    for (const t of tools as any[]) {
+      if (Array.isArray(t.categories) && t.categories.length) {
+        t.categories.forEach((c: unknown) => cats.add(String(c)));
+      } else if (t.category) {
+        cats.add(String(t.category));
+      }
+    }
     return CATEGORY_ORDER.filter((c) => c === "全部" || cats.has(c));
   }, [tools]);
 
   const filtered = useMemo(() => {
     const list = tools.filter((tool) => {
-      const matchCategory = selectedCategory === "全部" || tool.category === selectedCategory;
+      const toolCats = Array.isArray((tool as any).categories)
+        ? (tool as any).categories
+        : tool.category
+          ? [tool.category]
+          : [];
+      const matchCategory =
+        selectedCategory === "全部" || toolCats.includes(selectedCategory);
       const matchFree = !freeOnly || tool.free;
       const q = searchQuery.toLowerCase();
+      const enDesc =
+        locale === "en"
+          ? (((toolsEn as any).descriptions?.[tool.id] as string | undefined) ?? "").toLowerCase()
+          : "";
       const matchSearch =
         !q ||
         tool.name.toLowerCase().includes(q) ||
         tool.description.toLowerCase().includes(q) ||
+        enDesc.includes(q) ||
         tool.tags.some((t) => t.toLowerCase().includes(q));
       return matchCategory && matchFree && matchSearch;
     });
