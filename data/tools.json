@@ -1,0 +1,505 @@
+{
+  "lastUpdated": "2026-04-09",
+  "tools": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "category": "对话AI",
+      "url": "https://chat.openai.com",
+      "free": true,
+      "description": "OpenAI 开发的对话AI，支持写作、编程、分析等多种任务",
+      "tags": ["对话", "写作", "编程", "分析"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "category": "对话AI",
+      "url": "https://claude.ai",
+      "free": true,
+      "description": "Anthropic 开发的AI助手，擅长长文本分析、写作和编程",
+      "tags": ["对话", "写作", "编程", "分析"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "category": "对话AI",
+      "url": "https://gemini.google.com",
+      "free": true,
+      "description": "Google 开发的AI助手，与 Google 生态深度集成",
+      "tags": ["对话", "搜索", "写作"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "category": "对话AI",
+      "url": "https://grok.com",
+      "free": true,
+      "description": "xAI 开发的AI助手，接入实时 X/Twitter 数据",
+      "tags": ["对话", "实时信息"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "category": "对话AI",
+      "url": "https://kimi.moonshot.cn",
+      "free": true,
+      "description": "月之暗面开发的AI助手，支持超长上下文和文件解读",
+      "tags": ["对话", "文件解读", "长文本"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "category": "对话AI",
+      "url": "https://www.doubao.com",
+      "free": true,
+      "description": "字节跳动开发的AI助手，支持多模态对话",
+      "tags": ["对话", "写作", "图像"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "wenxin",
+      "name": "文心一言",
+      "category": "对话AI",
+      "url": "https://yiyan.baidu.com",
+      "free": true,
+      "description": "百度开发的AI助手，支持中文理解和创作",
+      "tags": ["对话", "写作", "中文"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "tongyi",
+      "name": "通义千问",
+      "category": "对话AI",
+      "url": "https://tongyi.aliyun.com",
+      "free": true,
+      "description": "阿里巴巴开发的AI助手，支持多种语言和任务",
+      "tags": ["对话", "写作", "编程"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "category": "AI搜索",
+      "url": "https://www.perplexity.ai",
+      "free": true,
+      "description": "AI驱动的搜索引擎，提供带引用来源的实时搜索答案",
+      "tags": ["搜索", "实时信息", "引用"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "you",
+      "name": "You.com",
+      "category": "AI搜索",
+      "url": "https://you.com",
+      "free": true,
+      "description": "AI搜索引擎，结合网页搜索与对话式AI",
+      "tags": ["搜索", "对话"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "category": "图像生成",
+      "url": "https://www.midjourney.com",
+      "free": false,
+      "description": "顶级AI图像生成工具，生成风格独特的高质量艺术图像",
+      "tags": ["图像生成", "艺术", "设计"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "dalle3",
+      "name": "DALL·E 3",
+      "category": "图像生成",
+      "url": "https://openai.com/dall-e-3",
+      "free": false,
+      "description": "OpenAI 的图像生成模型，可通过 ChatGPT Plus 使用",
+      "tags": ["图像生成", "创意"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "stable-diffusion",
+      "name": "Stable Diffusion",
+      "category": "图像生成",
+      "url": "https://stability.ai",
+      "free": true,
+      "description": "开源图像生成模型，可本地部署，完全免费",
+      "tags": ["图像生成", "开源", "本地部署"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "category": "图像生成",
+      "url": "https://ideogram.ai",
+      "free": true,
+      "description": "擅长在图像中准确渲染文字的AI图像生成工具",
+      "tags": ["图像生成", "文字渲染"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "flux",
+      "name": "Flux",
+      "category": "图像生成",
+      "url": "https://blackforestlabs.ai",
+      "free": true,
+      "description": "Black Forest Labs 开发的高质量开源图像生成模型",
+      "tags": ["图像生成", "开源"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "category": "视频生成",
+      "url": "https://runwayml.com",
+      "free": true,
+      "description": "AI视频生成和编辑平台，支持文字转视频、图像转视频",
+      "tags": ["视频生成", "视频编辑"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "sora",
+      "name": "Sora",
+      "category": "视频生成",
+      "url": "https://sora.com",
+      "free": false,
+      "description": "OpenAI 开发的文字转视频模型，生成质量极高",
+      "tags": ["视频生成"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "kling",
+      "name": "可灵AI",
+      "category": "视频生成",
+      "url": "https://klingai.com",
+      "free": true,
+      "description": "快手开发的AI视频生成工具，支持中文提示词",
+      "tags": ["视频生成", "中文"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "hailuo",
+      "name": "海螺AI",
+      "category": "视频生成",
+      "url": "https://hailuoai.com",
+      "free": true,
+      "description": "MiniMax 开发的AI视频生成工具，效果出色",
+      "tags": ["视频生成", "中文"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "category": "编程辅助",
+      "url": "https://github.com/features/copilot",
+      "free": false,
+      "description": "GitHub 和 OpenAI 联合推出的AI编程助手，支持主流IDE",
+      "tags": ["编程", "代码补全", "IDE"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "category": "编程辅助",
+      "url": "https://cursor.sh",
+      "free": true,
+      "description": "AI优先的代码编辑器，支持对话式编程和代码生成",
+      "tags": ["编程", "代码编辑器", "对话编程"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "category": "编程辅助",
+      "url": "https://codeium.com/windsurf",
+      "free": true,
+      "description": "Codeium 推出的AI代码编辑器，免费功能强大",
+      "tags": ["编程", "代码编辑器"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "v0",
+      "name": "v0",
+      "category": "编程辅助",
+      "url": "https://v0.dev",
+      "free": true,
+      "description": "Vercel 推出的AI前端代码生成工具，输出 React 组件",
+      "tags": ["编程", "前端", "React"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "bolt",
+      "name": "Bolt",
+      "category": "编程辅助",
+      "url": "https://bolt.new",
+      "free": true,
+      "description": "浏览器内全栈AI开发工具，即时生成可运行的完整应用",
+      "tags": ["编程", "全栈", "快速原型"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "category": "效率工具",
+      "url": "https://notion.so/product/ai",
+      "free": false,
+      "description": "Notion 内置AI助手，支持写作、总结、翻译等",
+      "tags": ["笔记", "写作", "效率"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "category": "效率工具",
+      "url": "https://gamma.app",
+      "free": true,
+      "description": "AI驱动的演示文稿生成工具，一键生成精美PPT",
+      "tags": ["PPT", "演示", "效率"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "beautiful-ai",
+      "name": "Beautiful.ai",
+      "category": "效率工具",
+      "url": "https://www.beautiful.ai",
+      "free": false,
+      "description": "AI辅助的演示文稿制作工具，自动美化布局",
+      "tags": ["PPT", "演示", "设计"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "otter-ai",
+      "name": "Otter.ai",
+      "category": "效率工具",
+      "url": "https://otter.ai",
+      "free": true,
+      "description": "AI会议记录和转写工具，自动生成会议摘要",
+      "tags": ["会议", "转写", "效率"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "fireflies",
+      "name": "Fireflies.ai",
+      "category": "效率工具",
+      "url": "https://fireflies.ai",
+      "free": true,
+      "description": "AI会议助手，自动记录、转写和分析会议内容",
+      "tags": ["会议", "转写", "效率"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "category": "音频与语音",
+      "url": "https://elevenlabs.io",
+      "free": true,
+      "description": "顶级AI语音合成工具，支持克隆声音和多语言配音",
+      "tags": ["语音合成", "配音", "克隆声音"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "category": "音频与语音",
+      "url": "https://suno.com",
+      "free": true,
+      "description": "AI音乐生成工具，输入歌词和风格即可生成完整歌曲",
+      "tags": ["音乐生成", "作曲"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "udio",
+      "name": "Udio",
+      "category": "音频与语音",
+      "url": "https://udio.com",
+      "free": true,
+      "description": "AI音乐创作平台，生成高质量多风格音乐",
+      "tags": ["音乐生成", "作曲"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "whisper",
+      "name": "Whisper",
+      "category": "音频与语音",
+      "url": "https://openai.com/research/whisper",
+      "free": true,
+      "description": "OpenAI 开源语音识别模型，支持多语言转写，可免费本地部署",
+      "tags": ["语音识别", "转写", "开源"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "canva-ai",
+      "name": "Canva AI",
+      "category": "设计工具",
+      "url": "https://www.canva.com",
+      "free": true,
+      "description": "集成AI功能的设计平台，支持AI生图、背景移除、魔法编辑",
+      "tags": ["设计", "图像编辑", "模板"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "adobe-firefly",
+      "name": "Adobe Firefly",
+      "category": "设计工具",
+      "url": "https://firefly.adobe.com",
+      "free": true,
+      "description": "Adobe 的AI创意工具，与 Photoshop 等软件深度集成",
+      "tags": ["设计", "图像生成", "Photoshop"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "remove-bg",
+      "name": "Remove.bg",
+      "category": "设计工具",
+      "url": "https://www.remove.bg",
+      "free": true,
+      "description": "AI一键抠图工具，自动移除图片背景",
+      "tags": ["抠图", "图像编辑"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "grammarly",
+      "name": "Grammarly",
+      "category": "写作辅助",
+      "url": "https://www.grammarly.com",
+      "free": true,
+      "description": "AI英语写作助手，实时纠正语法错误和提升写作质量",
+      "tags": ["写作", "英语", "语法"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "jasper",
+      "name": "Jasper",
+      "category": "写作辅助",
+      "url": "https://www.jasper.ai",
+      "free": false,
+      "description": "AI营销文案写作工具，支持多种内容格式和品牌语调",
+      "tags": ["写作", "营销", "文案"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "copy-ai",
+      "name": "Copy.ai",
+      "category": "写作辅助",
+      "url": "https://www.copy.ai",
+      "free": true,
+      "description": "AI文案生成工具，快速生成营销文案、博客和社交媒体内容",
+      "tags": ["写作", "文案", "营销"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "deepl",
+      "name": "DeepL",
+      "category": "翻译工具",
+      "url": "https://www.deepl.com",
+      "free": true,
+      "description": "高质量AI翻译工具，翻译准确性超越Google翻译",
+      "tags": ["翻译", "语言"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "google-translate",
+      "name": "Google翻译",
+      "category": "翻译工具",
+      "url": "https://translate.google.com",
+      "free": true,
+      "description": "Google 免费翻译工具，支持100+语言",
+      "tags": ["翻译", "语言"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen",
+      "category": "视频生成",
+      "url": "https://www.heygen.com",
+      "free": true,
+      "description": "AI数字人视频生成工具，支持虚拟形象和口型同步",
+      "tags": ["数字人", "视频生成", "配音"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "category": "视频生成",
+      "url": "https://www.descript.com",
+      "free": true,
+      "description": "AI视频和播客编辑工具，像编辑文档一样编辑视频",
+      "tags": ["视频编辑", "播客", "转写"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "luma",
+      "name": "Luma Dream Machine",
+      "category": "视频生成",
+      "url": "https://lumalabs.ai/dream-machine",
+      "free": true,
+      "description": "Luma AI 开发的高质量AI视频生成工具",
+      "tags": ["视频生成"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "character-ai",
+      "name": "Character.AI",
+      "category": "对话AI",
+      "url": "https://character.ai",
+      "free": true,
+      "description": "AI角色扮演平台，可与各种AI虚拟角色对话",
+      "tags": ["对话", "角色扮演", "娱乐"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "poe",
+      "name": "Poe",
+      "category": "对话AI",
+      "url": "https://poe.com",
+      "free": true,
+      "description": "Quora 推出的AI聚合平台，一站访问 Claude、GPT、Gemini 等",
+      "tags": ["对话", "AI聚合"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "leonardo",
+      "name": "Leonardo.ai",
+      "category": "图像生成",
+      "url": "https://leonardo.ai",
+      "free": true,
+      "description": "游戏资产和创意图像生成平台，每日免费额度充足",
+      "tags": ["图像生成", "游戏", "设计"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "category": "开发者工具",
+      "url": "https://replicate.com",
+      "free": false,
+      "description": "AI模型云端运行平台，按量计费，支持数千个开源模型",
+      "tags": ["API", "开发者", "模型部署"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "category": "开发者工具",
+      "url": "https://huggingface.co",
+      "free": true,
+      "description": "AI模型和数据集托管平台，开源AI生态核心枢纽",
+      "tags": ["开源", "模型", "开发者"],
+      "addedAt": "2026-04-09"
+    },
+    {
+      "id": "coze",
+      "name": "Coze",
+      "category": "开发者工具",
+      "url": "https://www.coze.com",
+      "free": true,
+      "description": "字节跳动推出的AI应用开发平台，无需编程即可构建AI机器人",
+      "tags": ["无代码", "机器人", "开发者"],
+      "addedAt": "2026-04-09"
+    }
+  ]
+}
