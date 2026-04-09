@@ -30,7 +30,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [freeOnly, setFreeOnly] = useState(false);
   const [usage, setUsage] = useState<Record<string, number>>({});
-  const sponsorUrl = "https://patreon.com/meijiiing";
+  const sponsorUrl = "https://www.patreon.com/posts/support-ai-daily-155166835";
 
   const tools = toolsData.tools;
 
